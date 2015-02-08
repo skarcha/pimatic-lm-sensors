@@ -1,21 +1,22 @@
-{ "name": "pimatic-plugin-template",
-  "description": "The plugin description",
-  "author": "Your Name <you@example.com> (http://your-website)",
-  "main": "my-plugin",
+{ "name": "pimatic-lm-sensors",
+  "description": "Provides lm-sensors info to pimatic",
+  "author": "Antonio Pérez <aperez@skarcha.com>",
+  "main": "lm-sensors",
   "files": [
-    "my-plugin.coffee",
+    "lm-sensors.coffee",
     "README.md",
-    "my-plugin-config-schema.coffee"
+    "lm-sensors-config-schema.coffee"
   ],
-  "version": "0.8.0",
+  "version": "0.1.0",
   "homepage": "http://your-plugin-website",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/pimatic/pimatic-plugin-template.git"
+    "url": "git://github.com/skarcha/pimatic-lm-sensors.git"
   },
-  "configSchema": "my-plugin-config-schema.coffee",
+  "configSchema": "lm-sensors-config-schema.coffee",
   "dependencies": {
+    "sensors.js": "1.1.2"
   },
   "peerDependencies": {
     "pimatic": "0.8.*"
