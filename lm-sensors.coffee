@@ -42,7 +42,38 @@ module.exports = (env) ->
     #     
     # 
     init: (app, @framework, @config) =>
+      deviceConfigDef = require("./device-config-schema")
+
       env.logger.info("Hello World")
+
+      @framework.deviceManager.registerDeviceClass("LmSensor", {
+        configDef: deviceConfigDef.LmSensor,
+        createCallback: (config) => return new LmSensor(config)
+      })
+
+  class LmSensor extends env.devices.TemperatureSensor
+    temperature: null
+
+    constructor: (@config) ->
+      @name = config.name
+      @id = config.id
+
+      # update the temperature every 5 seconds
+      setInterval( ( =>
+        @doYourStuff()
+      ), config.attributes.interval or 5000)
+
+      super()
+
+    doYourStuff: () ->
+      sensorsjs.sensors( (data, error) =>
+        newtemp = data[@config.attributes.sensor_name]['PCI adapter'].temp1.value
+        if newtemp != @temperature
+          @temperature = newtemp
+          @emit "temperature", newtemp
+      )
+
+    getTemperature: -> Promise.resolve(@temperature)
 
   # ###Finally
   # Create a instance of my plugin
