@@ -28,4 +28,4 @@ Example
     temp1:        +56.5°C  (high = +70.0°C)
                            (crit = +100.0°C, hyst = +97.0°C)
 
-`interval` is the "refresh" interval (in milliseconds) between temperature reads. Default: 50000 (5 seconds)
+`interval` is the "refresh" interval (in milliseconds) between temperature reads. Default: 5000 (5 seconds)
