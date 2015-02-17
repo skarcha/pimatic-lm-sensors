@@ -1,17 +1,31 @@
-pimatic-plugin-template
+pimatic-lm-sensors
 =======================
 
-See the [development guide](http://pimatic.org/guide/development/required-skills-readings/) for
-usage.
+A pimatic plugin for [lm-sensors](http://www.lm-sensors.org/).
 
-Some Tips:
+Example
+-------
 
-###Adding package dependencies
-* You can add other package dependencies by running `npm install something --save`. With the `--save`
-  option npm will auto add the installed dependency in your `package.json`
-* You can always install all dependencies in the package.json with `npm install`
+    {
+      "class": "LmSensor",
+      "id": "CPUTemp",
+      "name": "CPU Temp.",
+      "attributes": {
+        "sensor_name": "k10temp-pci-00c3",
+        "interval": 30000
+      }
+    }
 
-###Commit your changes to git
-* Add all edited files with `git add file`. For example: `git add package.json` then commit you changes 
-  with `git commit`.
-* After that you can push you commited work to github: `git push`
+`sensor_name` is the name of the device returned by `sensors` program. Example:
+
+    $ sensors
+    radeon-pci-0008
+    Adapter: PCI adapter
+    temp1:        +56.0°C  (crit = +120.0°C, hyst = +90.0°C)
+
+    k10temp-pci-00c3
+    Adapter: PCI adapter
+    temp1:        +56.5°C  (high = +70.0°C)
+                           (crit = +100.0°C, hyst = +97.0°C)
+
+`interval` is the "refresh" interval (in milliseconds) between temperature reads. Default: 50000 (5 seconds)
