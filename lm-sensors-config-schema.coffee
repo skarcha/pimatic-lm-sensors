@@ -1,11 +1,6 @@
-# #my-plugin configuration options
-# Declare your config option for your plugin here. 
+# pimatic-lm-sensors configuration options
 module.exports = {
-  title: "my plugin config options"
+  title: "pimatic-lm-sensors config options"
   type: "object"
-  properties:
-    option1:
-      description: "Some option"
-      type: "string"
-      default: "foo"
+  properties: {}
 }
