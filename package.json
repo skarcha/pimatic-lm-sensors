@@ -10,7 +10,7 @@
     "lm-sensors-config-schema.coffee",
     "device-config-schema.coffee"
   ],
-  "version": "0.1.4",
+  "version": "0.2.0",
   "homepage": "https://github.com/skarcha/pimatic-lm-sensors",
   "repository": {
     "type": "git",
