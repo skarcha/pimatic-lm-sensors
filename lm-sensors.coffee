@@ -29,7 +29,7 @@ module.exports = (env) ->
       # default.
       @readDataIntervalId = setInterval( ( =>
         @readNewTemp()
-      ), @config.attributes.interval or 5000)
+      ), @config.attributes.interval)
 
       super()
 
