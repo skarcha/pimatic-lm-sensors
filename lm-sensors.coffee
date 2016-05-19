@@ -22,15 +22,19 @@ module.exports = (env) ->
     temperature: null
 
     constructor: (@config) ->
-      @name = config.name
-      @id = config.id
+      @name = @config.name
+      @id = @config.id
 
       # update the temperature every 'interval' from config, or 5 seconds by
       # default.
-      setInterval( ( =>
+      @readDataIntervalId = setInterval( ( =>
         @readNewTemp()
-      ), config.attributes.interval or 5000)
+      ), @config.attributes.interval or 5000)
 
+      super()
+
+    destroy: () ->
+      clearInterval @readDataIntervalId if @readDataIntervalId?
       super()
 
     readNewTemp: () ->
