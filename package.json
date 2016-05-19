@@ -2,6 +2,7 @@
   "name": "pimatic-lm-sensors",
   "description": "Provides lm-sensors info to pimatic",
   "author": "Antonio Pérez <aperez@skarcha.com>",
+  "license": "MIT",
   "main": "lm-sensors",
   "files": [
     "lm-sensors.coffee",
@@ -20,7 +21,7 @@
     "sensors.js": "1.1.2"
   },
   "peerDependencies": {
-    "pimatic": "0.8.*"
+    "pimatic": ">=0.8.0 <1.0.0"
   },
   "engines": {
     "node": ">0.8.x",
